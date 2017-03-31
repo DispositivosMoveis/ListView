@@ -26,14 +26,25 @@ public class principal extends AppCompatActivity {
 
         listView = (ListView) findViewById(R.id.listaPessoas);
 
-        ArrayAdapter<Pessoa> adapter = new ArrayAdapter<Pessoa>(this,android.R.layout.simple_list_item_1,pessoas);
+        ArrayAdapter<Pessoa> adapter = new ArrayAdapter<Pessoa>(this, android.R.layout.simple_list_item_1, pessoas);
         listView.setAdapter(adapter);
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Toast.makeText(getApplicationContext(),"Selecionado: "+position,Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "Selecionado: " + position, Toast.LENGTH_SHORT).show();
             }
         });
+
+        listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+                Toast.makeText(getApplicationContext(),"Vamos editar...",Toast.LENGTH_SHORT).show();
+                return true;
+            }
+        });
+
     }
+
 }
+
